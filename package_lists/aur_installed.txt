@@ -1,0 +1,16 @@
+bettergruvbox-gtk-theme
+cava
+gruvbox-dark-gtk
+gruvbox-dark-icons-gtk
+ly
+nerd-fonts-dejavu-complete
+nerd-fonts-jetbrains-mono
+nerd-fonts-roboto-mono
+polybar-spotify-module
+pulseaudio-control
+spotify
+tamzen-font
+terminus-font-ttf
+xorg-font-utils
+yay
+zscroll-git
