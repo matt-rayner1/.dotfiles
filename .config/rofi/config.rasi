@@ -1,0 +1,24 @@
+configuration {
+	modi: "drun,run";
+	sidebar-mode: true;
+
+	display-drun: "Applications: ";
+	display-run: "All programs: ";
+	drun-display-format: "{icon} {name}";
+
+	location: 0;
+	font: "tamzen bold 15";
+	show-icons: true;
+	icon-theme: "Papirus";
+	eh: 1;
+
+	sorting-method: "fzf";
+	matching: "fuzzy";
+
+	//fixed-num-lines: true;
+	//disable-history: true;
+	//sort: true;
+	//hover-select: false;
+}
+
+@theme "theme.rasi"
