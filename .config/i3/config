@@ -134,7 +134,7 @@ font pango:tamzen bold 14.5
 # gaps + space for polybar
 # TOTAL INNER AND TOP = 38, always change both values to = 38
 gaps inner 7
-gaps top 20
+gaps top 18
 
 # disable window titlebars
 for_window [class=".*"] border pixel 2
