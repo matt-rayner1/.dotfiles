@@ -109,14 +109,18 @@ bindsym $mod+Shift+Control+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym $mod+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym $mod+F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym $mod+F4 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Spotify keys
-bindsym $mod+F6 exec --no-startup-id spotifyctl -q previous
-bindsym $mod+F7 exec --no-startup-id spotifyctl -q playpause
-bindsym $mod+F8 exec --no-startup-id spotifyctl -q next
+bindsym XF86AudioPrev exec --no-startup-id spotifyctl -q previous
+bindsym XF86AudioPlay exec --no-startup-id spotifyctl -q playpause
+bindsym XF86AudioNext exec --no-startup-id spotifyctl -q next
+
+# Brightness keys
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 ##################################################
 # SPECIFIC WINDOW RULES
