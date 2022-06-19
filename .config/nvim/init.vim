@@ -147,10 +147,10 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-inoremap <Left> :echoe "Use h"<CR>
-inoremap <Right> :echoe "Use l"<CR>
-inoremap <Up> :echoe "Use k"<CR>
-inoremap <Down> :echoe "Use j"<CR>
+inoremap <Left> <ESC>:echoe "Use h"<CR>
+inoremap <Right> <ESC>:echoe "Use l"<CR>
+inoremap <Up> <ESC>:echoe "Use k"<CR>
+inoremap <Down> <ESC>:echoe "Use j"<CR>
 
 "edit/source vim config
 nmap <leader>ve :tabedit ~/.config/nvim/init.vim<CR>
