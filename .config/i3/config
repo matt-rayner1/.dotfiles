@@ -115,7 +115,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 
 # Spotify keys
 bindsym XF86AudioPrev exec --no-startup-id spotifyctl -q previous
-bindsym XF86AudioPlay exec --no-startup-id spotifyctl -q playpause
+bindsym XF86AudioPlay exec --no-startup-id ~/.config/polybar/scripts/spotify-toggle.sh
 bindsym XF86AudioNext exec --no-startup-id spotifyctl -q next
 
 # Brightness keys
