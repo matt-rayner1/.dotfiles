@@ -11,6 +11,7 @@ pulseaudio-control
 spotify
 tamzen-font
 terminus-font-ttf
+xbindkeys_config-gtk2
 xorg-font-utils
 yay
 zscroll-git
