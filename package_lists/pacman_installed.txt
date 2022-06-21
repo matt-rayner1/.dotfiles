@@ -285,6 +285,7 @@ linux-firmware
 linux-firmware-whence
 llvm-libs
 lm_sensors
+lua53
 luajit
 lxappearance
 ly
@@ -314,6 +315,7 @@ networkmanager
 ninja
 nitrogen
 nm-connection-editor
+nmap
 node-gyp
 nodejs
 nodejs-nopt

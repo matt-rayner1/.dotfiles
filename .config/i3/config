@@ -165,6 +165,13 @@ client.focused_inactive $darkgray $darkgray $yellow $darkgray $darkgray
 client.unfocused	$darkgray $darkgray $yellow $darkgray $darkgray
 client.urgent		$red $red $white $red $red
 
+##################################################
+# disable system tray 
+##################################################
+bar {
+    tray_output none
+    mode invisible
+}
 
 ##################################################
 # EXECS + startups
