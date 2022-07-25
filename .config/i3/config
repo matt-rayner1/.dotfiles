@@ -1,3 +1,4 @@
+
 ##################################################
 # KEYBINDS
 ##################################################
@@ -66,14 +67,15 @@ bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: browser"
-set $ws2 "2: terminal"
-set $ws3 "3: editor"
-set $ws4 "4: notes"
-set $ws5 "5: music"
-set $ws6 "6: comms"
-set $ws7 "7"
-set $ws8 "8"
+set $ws1 "1: terminal"
+set $ws2 "2: editor"
+set $ws3 "3: notes"
+set $ws4 "4"
+set $ws5 "5"
+#---------------
+set $ws6 "6: browser"
+set $ws7 "7: music"
+set $ws8 "8: comms"
 set $ws9 "9"
 set $ws10 "10"
 
@@ -83,11 +85,11 @@ bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+Control+1 workspace number $ws6
+bindsym $mod+Control+2 workspace number $ws7
+bindsym $mod+Control+3 workspace number $ws8
+bindsym $mod+Control+4 workspace number $ws9
+bindsym $mod+Control+5 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1; workspace $ws1
@@ -95,11 +97,11 @@ bindsym $mod+Shift+2 move container to workspace number $ws2; workspace $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3; workspace $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4; workspace $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5; workspace $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6; workspace $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7; workspace $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8; workspace $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9; workspace $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10; workspace $ws10
+bindsym $mod+Shift+Control+1 move container to workspace number $ws6; workspace $ws6
+bindsym $mod+Shift+Control+2 move container to workspace number $ws7; workspace $ws7
+bindsym $mod+Shift+Control+3 move container to workspace number $ws8; workspace $ws8
+bindsym $mod+Shift+Control+4 move container to workspace number $ws9; workspace $ws9
+bindsym $mod+Shift+Control+5 move container to workspace number $ws10; workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -109,14 +111,29 @@ bindsym $mod+Shift+Control+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym $mod+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym $mod+F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym $mod+F4 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Spotify keys
-bindsym $mod+F6 exec --no-startup-id spotifyctl -q previous
-bindsym $mod+F7 exec --no-startup-id spotifyctl -q playpause
-bindsym $mod+F8 exec --no-startup-id spotifyctl -q next
+bindsym XF86AudioPrev exec --no-startup-id spotifyctl -q previous
+bindsym XF86AudioPlay exec --no-startup-id ~/.config/polybar/scripts/spotify-toggle.sh
+bindsym XF86AudioNext exec --no-startup-id spotifyctl -q next
+
+##################################################
+# DUAL MONITOR SETUP
+##################################################
+
+workspace $ws1 output DVI-D-0
+workspace $ws2 output DVI-D-0
+workspace $ws3 output DVI-D-0
+workspace $ws4 output DVI-D-0
+workspace $ws5 output DVI-D-0
+workspace $ws6 output HDMI-0
+workspace $ws7 output HDMI-0
+workspace $ws8 output HDMI-0
+workspace $ws9 output HDMI-0
+workspace $ws10 output HDMI-0
 
 ##################################################
 # SPECIFIC WINDOW RULES
@@ -161,12 +178,21 @@ client.focused_inactive $darkgray $darkgray $yellow $darkgray $darkgray
 client.unfocused	$darkgray $darkgray $yellow $darkgray $darkgray
 client.urgent		$red $red $white $red $red
 
+##################################################
+# disable system tray
+##################################################
+bar {
+    tray_output none
+    mode invisible
+}
+
 
 ##################################################
 # EXECS + startups
 ##################################################
 
 exec_always --no-startup-id picom -b --no-vsync
-exec_always --no-startup-id nitrogen --restore
+exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
+exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
+#exec_always --no-startup-id nvidia-settings --assign "CurrentMetaMode=DPY-0: 1920x1080_144 @1920x1080 +0+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}, DPY-1: nvidia-auto-select @1920x1080 +1920+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}"
