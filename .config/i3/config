@@ -195,4 +195,4 @@ exec_always --no-startup-id picom -b --no-vsync
 exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
-#exec_always --no-startup-id nvidia-settings --assign "CurrentMetaMode=DPY-0: 1920x1080_144 @1920x1080 +0+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}, DPY-1: nvidia-auto-select @1920x1080 +1920+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}"
+exec_always --no-startup-id nm-applet
