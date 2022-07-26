@@ -71,7 +71,7 @@ bindsym $mod+d focus child
 set $ws1 "1: terminal"
 set $ws2 "2: editor"
 set $ws3 "3: notes"
-set $ws4 "4"
+set $ws4 "4: browser2"
 set $ws5 "5"
 #---------------
 set $ws6 "6: browser"
@@ -150,8 +150,7 @@ for_window [class="Pavucontrol"] floating enable
 font pango:tamzen bold 14.5
 
 # gaps + space for polybar
-# TOTAL INNER AND TOP = 38, always change both values to = 38
-gaps inner 10
+gaps inner 8
 gaps top 25
 
 # disable window titlebars
@@ -192,7 +191,7 @@ bar {
 # EXECS + startups
 ##################################################
 
-exec_always --no-startup-id picom -b --no-vsync
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b --no-vsync --experimental-backends
 exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
