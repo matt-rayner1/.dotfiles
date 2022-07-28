@@ -197,3 +197,4 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.45
+exec_always --no-startup-id nvidia-settings --load-config-only
