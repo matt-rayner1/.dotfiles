@@ -76,7 +76,7 @@ nnoremap <A-k> <C-\>k
 nnoremap <A-l> <C-\>l
 
 "Enter rebind (coc) to put closing bracket on newline (like vscode)
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 "Tab cycle through coc options
 inoremap <silent><expr> <TAB>
