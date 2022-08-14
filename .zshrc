@@ -3,8 +3,6 @@ export ZSH="/home/user0/.oh-my-zsh"
 
 # THEME CHOICE
 ZSH_THEME="bureau"
-#ZSH_THEME="gruvbox"
-#SOLARIZED_THEME="dark"
 
 #Plugin list
 #TODO: add fzf
@@ -70,7 +68,10 @@ fi
 alias history="history 0"
 alias vim="nvim"
 alias vi="nvim"
+alias v="nvim"
 alias zshrc="nvim ~/.zshrc"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias vwik="nvim ~/vimwiki/index.wiki"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -138,7 +138,7 @@ font pango:tamzen bold 14.5
 # gaps + space for polybar
 # TOTAL INNER AND TOP = 38, always change both values to = 38
 gaps inner 7
-gaps top 18
+gaps top 20
 
 # disable window titlebars
 for_window [class=".*"] border pixel 2
@@ -160,7 +160,7 @@ set $darkgray #1d2021
 # gray version
 # note: only child_border and indicator matter if titlebars are disabled
 # class			border|backgr|text|indicator|child_border
-client.focused		$gray $gray $darkgray $fg0 $gray
+client.focused		$gray $gray $darkgray $blue $gray
 client.focused_inactive $darkgray $darkgray $yellow $darkgray $darkgray
 client.unfocused	$darkgray $darkgray $yellow $darkgray $darkgray
 client.urgent		$red $red $white $red $red
@@ -178,7 +178,7 @@ bar {
 ##################################################
 
 exec_always --no-startup-id picom -b --no-vsync
-exec_always --no-startup-id nitrogen --restore
+exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nm-applet
 

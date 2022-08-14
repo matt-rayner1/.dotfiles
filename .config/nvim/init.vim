@@ -27,6 +27,8 @@ call plug#begin()
     
     Plug 'sheerun/vim-polyglot'
 
+    Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 "color theme
@@ -74,7 +76,19 @@ nnoremap <A-k> <C-\>k
 nnoremap <A-l> <C-\>l
 
 "Enter rebind (coc) to put closing bracket on newline (like vscode)
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+"Tab cycle through coc options
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ CheckBackspace() ? "\<TAB>" :
+    \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 "fzf
 nnoremap <silent> <leader>p :Files ~<CR>
@@ -85,7 +99,8 @@ nnoremap <silent> <C-p> :Files<CR>
 " General Settings
 "--------------------------------
 
-"syntax on
+" syntax on
+set wrap
 
 set termguicolors
 
@@ -129,7 +144,7 @@ set wildmode=longest:full,full
 "set list
 "set listchars=tab:>\,trail:.
 
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 set splitright
 set splitbelow
@@ -156,6 +171,11 @@ inoremap <Down> <ESC>:echoe "Use j"<CR>
 nmap <leader>ve :tabedit ~/.config/nvim/init.vim<CR>
 nmap <leader>vs :source ~/.config/nvim/init.vim<CR>
 
+"copy/paste clipboard
+vnoremap <leader>cp "*y<CR>
+vnoremap <leader>cv "*p<CR>
+nnoremap <leader>cv "*p<CR>
+
 "gf to open non-existent Files
 nmap gf :edit <cfile><CR>
 
@@ -165,11 +185,20 @@ nmap <silent> <C-j> <C-w>j
 nmap <silent> <C-k> <C-w>k
 nmap <silent> <C-l> <C-w>l
 
+"better window resize
+:nnoremap <silent> <c-Up> :resize -1<CR>
+:nnoremap <silent> <c-Down> :resize +1<CR>
+:nnoremap <silent> <c-left> :vertical resize -1<CR>
+:nnoremap <silent> <c-right> :vertical resize +1<CR>
+
 "reselect visual seleciton after indent
 vnoremap < <gv
 vnoremap > >gv
 
-"terminal window (add window switching?)
+"wrap toggle keybind
+nnoremap <silent> <leader>ra :set wrap!<CR>
+
+"terminal window (add window switching?)"
 tnoremap <Esc> <C-\><C-n>
 au bufEnter * if &buftype == 'terminal' | :startinsert | endif
 
