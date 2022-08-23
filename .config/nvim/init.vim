@@ -76,14 +76,14 @@ nnoremap <A-k> <C-\>k
 nnoremap <A-l> <C-\>l
 
 "Enter rebind (coc) to put closing bracket on newline (like vscode)
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 "Tab cycle through coc options
 inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
+    \ coc#pum#visible() ? "\<C-n>" :
     \ CheckBackspace() ? "\<TAB>" :
     \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? "\<C-p>" : "\<C-h>"
 
 function! CheckBackspace() abort
     let col = col('.') - 1
