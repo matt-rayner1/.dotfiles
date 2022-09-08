@@ -19,7 +19,6 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+r exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+r exec --no-startup-id rofi -show run
 
-
 # kill focused window
 bindsym $mod+q kill
 bindsym $mod+Control+q kill
@@ -112,14 +111,16 @@ bindsym $mod+Shift+Control+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% &
+bindsym F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% &
+bindsym F4 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &
 
 # Spotify keys
-bindsym XF86AudioPrev exec --no-startup-id spotifyctl -q previous
-bindsym XF86AudioPlay exec --no-startup-id ~/.config/polybar/scripts/spotify-toggle.sh
-bindsym XF86AudioNext exec --no-startup-id spotifyctl -q next
+bindsym F6 exec --no-startup-id spotifyctl -q previous
+bindsym F7 exec --no-startup-id ~/.config/polybar/scripts/spotify-toggle.sh
+bindsym F8 exec --no-startup-id spotifyctl -q next
+
+bindsym F12 exec sleep 5 && exec flameshot screen --path /home/user0/Downloads &
 
 ##################################################
 # DUAL MONITOR SETUP
@@ -196,5 +197,5 @@ exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xrandr --output DVI-D-0 --mode 1920x1080 --rate 144
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.45
+exec_always --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.40
 exec_always --no-startup-id nvidia-settings --load-config-only
