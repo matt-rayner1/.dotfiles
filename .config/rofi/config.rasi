@@ -12,7 +12,7 @@ configuration {
 	icon-theme: "Papirus";
 	eh: 1;
 
-	//sorting-method: "fzf";
+	sorting-method: "fzf";
 	matching: "fuzzy";
 
 	//fixed-num-lines: true;

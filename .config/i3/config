@@ -69,13 +69,13 @@ bindsym $mod+d focus child
 set $ws1 "1: terminal"
 set $ws2 "2: editor"
 set $ws3 "3: notes"
-set $ws4 "4: browser2"
-set $ws5 "5"
+set $ws4 "4: tele"
+set $ws5 "5: network"
 #---------------
 set $ws6 "6: browser"
 set $ws7 "7: music"
 set $ws8 "8: comms"
-set $ws9 "9"
+set $ws9 "9: inspect"
 set $ws10 "10"
 
 # switch to workspace
