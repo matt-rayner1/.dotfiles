@@ -31,6 +31,7 @@ PROMPT_EOL_MARK=""
 # key bindings
 bindkey -v			# vim key bindings
 bindkey ' ' magic-space		# do history expansion on space
+bindkey '^ ' autosuggest-accept
 
 # enable autocompletion
 autoload -Uz compinit
