@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 NUM_UPDATES=$((checkupdates | wc -l) 2> /dev/null)
 

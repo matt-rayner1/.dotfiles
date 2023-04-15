@@ -110,11 +110,11 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Tamzen
-    style: Regular
+    family: Tamzen Nerd Font
+    style: Medium
 
   bold:
-    family: Tamzen
+    family: TamzenBold Nerd Font
     style: Bold
 
   italic:

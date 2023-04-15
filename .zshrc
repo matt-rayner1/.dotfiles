@@ -31,6 +31,7 @@ PROMPT_EOL_MARK=""
 # key bindings
 bindkey -v			# vim key bindings
 bindkey ' ' magic-space		# do history expansion on space
+bindkey '^ ' autosuggest-accept
 
 # enable autocompletion
 autoload -Uz compinit
@@ -41,8 +42,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive com
 
 # Histfile settings:
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 
 # color settings
 if [ -x /usr/bin/dircolors ]; then
@@ -73,5 +74,7 @@ alias zshrc="nvim ~/.zshrc"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vwik="nvim ~/vimwiki/index.wiki"
 
+export PATH=$PATH:/home/user0/.local/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
